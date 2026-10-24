@@ -1,5 +1,7 @@
 # Source publication checks — 2026-10-24
 
+These are the initial publication checks before the Iris blend correction. Current fix and follow-up regression results, including the separately retried optional REA integration test, are in [IRIS-BLENDING-FIX.ko.md](IRIS-BLENDING-FIX.ko.md).
+
 These checks ran on the separate source-publication snapshot, after replacing personal paths and making private original-asset tests opt-in. The active MCP project was not changed.
 
 | Check | Current result |

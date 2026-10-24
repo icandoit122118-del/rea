@@ -1,5 +1,37 @@
 import {createPicaFragment,evaluateMaterialFrame,quaternionBasisGlsl,validateFacialValue} from './pica-runtime.js';
 
+/** Translate decoded PICA blend state without Three's NormalBlending alpha override. */
+export function blendMaterialParameters(config,THREE) {
+  const blend=config.blend;
+  if(!blend||typeof blend.enabled!=='boolean')throw new Error('Missing decoded PICA blend state');
+  if(!blend.enabled)return {transparent:false,blending:THREE.NoBlending};
+  const factors={Zero:THREE.ZeroFactor,One:THREE.OneFactor,SourceColor:THREE.SrcColorFactor,
+    OneMinusSourceColor:THREE.OneMinusSrcColorFactor,DestinationColor:THREE.DstColorFactor,
+    OneMinusDestinationColor:THREE.OneMinusDstColorFactor,SourceAlpha:THREE.SrcAlphaFactor,
+    OneMinusSourceAlpha:THREE.OneMinusSrcAlphaFactor,DestinationAlpha:THREE.DstAlphaFactor,
+    OneMinusDestinationAlpha:THREE.OneMinusDstAlphaFactor,ConstantColor:THREE.ConstantColorFactor,
+    OneMinusConstantColor:THREE.OneMinusConstantColorFactor,ConstantAlpha:THREE.ConstantAlphaFactor,
+    OneMinusConstantAlpha:THREE.OneMinusConstantAlphaFactor,SourceAlphaSaturate:THREE.SrcAlphaSaturateFactor};
+  const equations={FuncAdd:THREE.AddEquation,FuncSubtract:THREE.SubtractEquation,
+    FuncReverseSubtract:THREE.ReverseSubtractEquation,Min:THREE.MinEquation,Max:THREE.MaxEquation};
+  const lookup=(table,key)=>{if(!Object.hasOwn(table,blend[key]))throw new Error(`Unsupported PICA blend ${key}: ${blend[key]}`);return table[blend[key]];};
+  const parameters={transparent:true,blending:THREE.CustomBlending,
+    blendSrc:lookup(factors,'color_src'),blendDst:lookup(factors,'color_dst'),
+    blendSrcAlpha:lookup(factors,'alpha_src'),blendDstAlpha:lookup(factors,'alpha_dst'),
+    blendEquation:lookup(equations,'color_equation'),blendEquationAlpha:lookup(equations,'alpha_equation')};
+  // Source replacement blending is effect-equivalent to the opaque path.
+  if(blend.color_equation==='FuncAdd'&&blend.alpha_equation==='FuncAdd'&&
+    blend.color_src==='One'&&blend.alpha_src==='One'&&blend.color_dst==='Zero'&&blend.alpha_dst==='Zero')
+    return {transparent:false,blending:THREE.NoBlending};
+  if(['color_src','color_dst','alpha_src','alpha_dst'].some(key=>/Constant/.test(blend[key]))) {
+    const rgba=config.colors?.blend;
+    if(!Array.isArray(rgba)||rgba.length!==4||rgba.some(value=>!Number.isFinite(value)||value<0||value>1))
+      throw new Error('Constant PICA blending requires a decoded RGBA blend color');
+    parameters.blendColor=new THREE.Color(rgba[0],rgba[1],rgba[2]);parameters.blendAlpha=rgba[3];
+  }
+  return parameters;
+}
+
 function vertexShader(bones) {
   return `precision highp float;
 in vec3 position,normal,picaTangent;in vec2 uv,uv1,uv2;in vec4 picaColor;
@@ -61,7 +93,7 @@ export async function attachPicaPlayer(gltf,THREE) {
       fragmentShader:createPicaFragment(config,{webgl2:true,luts:runtime.luts}),uniforms,
       side:config.face_culling==='BackFace'?THREE.FrontSide:config.face_culling==='FrontFace'?THREE.BackSide:THREE.DoubleSide,
       depthTest:config.depth_color_mask.enabled,depthWrite:config.depth_color_mask.depth_write,
-      transparent:false,blending:THREE.NoBlending,toneMapped:false});
+      ...blendMaterialParameters(config,THREE),toneMapped:false});
     const fallbackMaterial=object.material;
     object.material=material;
     object.onBeforeRender=(renderer,scene,camera)=>{
@@ -82,6 +114,9 @@ export async function attachPicaPlayer(gltf,THREE) {
       object.visible=state.model_visible && (state.visibility[nodeName]??true);
       for(let i=0;i<3;i++){uniforms[`uUvMatrix${i}`].value.fromArray(current.uv_matrices[i]);uniforms[`uTexture${i}`].value=textures.get(`${i}:${current.texture_names[i]}`)||white;}
       for(const [key,values] of Object.entries(current.colors||{})){const uniform=uniforms[`u${key[0].toUpperCase()+key.slice(1)}`];if(uniform)uniform.value.fromArray(values);}
+      if(current.colors?.blend&&record.material.blending===THREE.CustomBlending){
+        record.material.blendColor.setRGB(...current.colors.blend.slice(0,3));record.material.blendAlpha=current.colors.blend[3];
+      }
       uniforms.uBufferColor.value.fromArray(config.texenv_buffer_color||[0,0,0,0]);
     }
     return state;

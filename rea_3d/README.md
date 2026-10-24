@@ -35,8 +35,8 @@ Use caller-selected absolute input paths and a new output directory. The player 
 ## Current verification boundary
 
 - Existing converted GLBs: 8 species passed actual browser compatibility checks; 47 clips were inventoried, not exhaustively played.
-- Playback performance: 13 conditions / 39 runs, including 6 and 12 copies of one model, on Ryzen 5 5600 / RX 9060 XT / isolated Chromium D3D11. Approximately 60Hz observed scheduling is not a maximum-FPS or phone benchmark.
-- Known shader defect: LIris/RIris source alpha blending is not applied at actual draw time. Original external shaders, lighting, outlines and pixel parity remain incomplete.
+- Playback performance: 13 conditions / 39 runs, including 6 and 12 copies of one model, on Ryzen 5 5600 / RX 9060 XT / isolated Chromium D3D11. These measurements describe the pre-blend-fix build. Approximately 60Hz observed scheduling is not a maximum-FPS or phone benchmark.
+- Iris blend correction: source RGB and alpha factors/equations are now applied separately with CustomBlending. Actual draw-state verification confirms the required LIris/RIris alpha blending and unchanged depth-write behavior. See the [fix and playback verification](docs/IRIS-BLENDING-FIX.ko.md). Original external shaders, lighting, outlines and pixel parity remain incomplete.
 - Multi-species ORAS source extraction was blocked by local source-storage read failures. Converted-GLB compatibility is not evidence of parser generality.
 - No ROMs, extracted game models, textures, gameplay recordings, credentials or browser profiles are included. Private raw validation evidence is retained locally; this repository includes a summarized report and measurements.
 

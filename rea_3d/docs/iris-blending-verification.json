@@ -1,0 +1,248 @@
+{
+  "schema": "rea3d.iris-fix-public-summary.v1",
+  "at": "2026-10-24T01:16:09.288Z",
+  "input_sha256": "e8bd5ccb7524170842037ef5d67286d1f3e2c197896bad2812bde673c63a3b76",
+  "player_sha256": "6f2b9621362d0deecc9ae88953dd30a33941c237043c9687a0da40156a87fbc7",
+  "actual_draw_audit": {
+    "ok": true,
+    "decoded_state_parity": true,
+    "draw_count": 174,
+    "uv_matrix_count": 522,
+    "compiled": 8,
+    "linked": 4,
+    "findings": [],
+    "iris_materials": [
+      {
+        "material": "LIris",
+        "samples": 29,
+        "semantic_mismatch_fields": []
+      },
+      {
+        "material": "RIris",
+        "samples": 29,
+        "semantic_mismatch_fields": []
+      }
+    ],
+    "input_unchanged": true
+  },
+  "actual_playback": {
+    "ok": true,
+    "comparisons": [
+      {
+        "key": "clip-0-frame-0",
+        "camera_identical": true,
+        "source_frame_error": 0,
+        "bone_rotations_identical": true,
+        "changedPixels": 1187,
+        "maximumChannelDelta": 219,
+        "bboxTopLeft": [
+          220,
+          240,
+          317,
+          293
+        ]
+      },
+      {
+        "key": "clip-0-frame-12",
+        "camera_identical": true,
+        "source_frame_error": 0,
+        "bone_rotations_identical": true,
+        "changedPixels": 1268,
+        "maximumChannelDelta": 218,
+        "bboxTopLeft": [
+          223,
+          247,
+          324,
+          301
+        ]
+      },
+      {
+        "key": "clip-0-frame-30",
+        "camera_identical": true,
+        "source_frame_error": 0,
+        "bone_rotations_identical": true,
+        "changedPixels": 1255,
+        "maximumChannelDelta": 216,
+        "bboxTopLeft": [
+          223,
+          245,
+          324,
+          300
+        ]
+      },
+      {
+        "key": "clip-5-frame-0",
+        "camera_identical": true,
+        "source_frame_error": 0,
+        "bone_rotations_identical": true,
+        "changedPixels": 370,
+        "maximumChannelDelta": 174,
+        "bboxTopLeft": [
+          271,
+          237,
+          319,
+          265
+        ]
+      },
+      {
+        "key": "clip-5-frame-12",
+        "camera_identical": true,
+        "source_frame_error": 0,
+        "bone_rotations_identical": true,
+        "changedPixels": 321,
+        "maximumChannelDelta": 171,
+        "bboxTopLeft": [
+          286,
+          215,
+          336,
+          253
+        ]
+      },
+      {
+        "key": "clip-5-frame-30",
+        "camera_identical": true,
+        "source_frame_error": 0,
+        "bone_rotations_identical": true,
+        "changedPixels": 288,
+        "maximumChannelDelta": 180,
+        "bboxTopLeft": [
+          272,
+          244,
+          322,
+          268
+        ]
+      },
+      {
+        "key": "clip-11-frame-0",
+        "camera_identical": true,
+        "source_frame_error": 0,
+        "bone_rotations_identical": true,
+        "changedPixels": 1187,
+        "maximumChannelDelta": 219,
+        "bboxTopLeft": [
+          220,
+          240,
+          317,
+          293
+        ]
+      },
+      {
+        "key": "clip-11-frame-12",
+        "camera_identical": true,
+        "source_frame_error": 0,
+        "bone_rotations_identical": true,
+        "changedPixels": 0,
+        "maximumChannelDelta": 0,
+        "bboxTopLeft": null
+      },
+      {
+        "key": "clip-14-frame-65",
+        "camera_identical": true,
+        "source_frame_error": 0,
+        "bone_rotations_identical": true,
+        "changedPixels": 0,
+        "maximumChannelDelta": 0,
+        "bboxTopLeft": null
+      },
+      {
+        "key": "side-clip-0-frame-12",
+        "camera_identical": true,
+        "source_frame_error": 0,
+        "bone_rotations_identical": true,
+        "changedPixels": 73,
+        "maximumChannelDelta": 137,
+        "bboxTopLeft": [
+          209,
+          221,
+          219,
+          263
+        ]
+      },
+      {
+        "key": "back-clip-0-frame-12",
+        "camera_identical": true,
+        "source_frame_error": 0,
+        "bone_rotations_identical": true,
+        "changedPixels": 0,
+        "maximumChannelDelta": 0,
+        "bboxTopLeft": null
+      }
+    ],
+    "raf_samples": {
+      "clip5": 9,
+      "clip11": 6
+    },
+    "visibility_draw_calls": [
+      6,
+      8
+    ],
+    "mode_restoration_passed": true,
+    "fan_playback_passed": true
+  },
+  "synthetic_gpu_math": {
+    "ok": true,
+    "synthetic": true,
+    "original_game_pixel_evidence": false,
+    "conditions_passed": 6,
+    "expected_rgba": [
+      0.6,
+      0.3,
+      0.3,
+      0.65
+    ],
+    "observed_rgba8": [
+      153,
+      76,
+      77,
+      166
+    ],
+    "maximum_byte_error": 1
+  },
+  "regression": {
+    "node_full_first_run": {
+      "total": 90,
+      "passed": 88,
+      "failed": 2,
+      "reason": "Optional installed REA SDK request timeout; failed subtest and parent"
+    },
+    "node_mcp_focused_rerun": {
+      "total": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "targeted_blending_tests": {
+      "total": 21,
+      "passed": 21
+    },
+    "python": {
+      "total": 94,
+      "passed": 89,
+      "skipped": 5,
+      "failed": 0
+    }
+  },
+  "local_evidence_digests": [
+    {
+      "name": "state-after-001/shader-runtime-receipt.json",
+      "sha256": "03c0e3863953e532fc7590019f4f3ac5ca32db70d39291ecbee09460b81f65c6"
+    },
+    {
+      "name": "playback-ab-001/iris-playback-receipt.json",
+      "sha256": "1835e09441143f507225cbf992fd7b2164958c29a5f55e884366f95af8f085fa"
+    },
+    {
+      "name": "playback-compact.json",
+      "sha256": "a7e44af31fbfde93c36dd4ad90dab82201d0d5d88b10b30bca5b433d254fbe65"
+    },
+    {
+      "name": "gpu-math-002/gpu-math-receipt.json",
+      "sha256": "0db21f79cddf1c6c14f50dd5f8c19b7cfdb0b15a3dfc7d789a639b9213d184e6"
+    }
+  ],
+  "boundaries": {
+    "original_game_pixel_parity": false,
+    "all_blend_variants_tested": false,
+    "performance_13_conditions_remeasured": false,
+    "raw_game_assets_published": false
+  }
+}
