@@ -1,0 +1,13 @@
+import { promises as fs } from 'node:fs';
+import path from 'node:path';
+import { ROOT, PYTHON, runProcess } from '../src/bridge.mjs';
+await fs.mkdir(path.join(ROOT,'evidence'),{recursive:true});
+const files=(await fs.readdir(path.join(ROOT,'test'))).filter(name=>name.endsWith('.test.mjs')).map(name=>path.join(ROOT,'test',name));
+const node=await runProcess(process.execPath,['--test','--test-reporter=tap',...files],{timeout:180000});
+await fs.writeFile(path.join(ROOT,'evidence/node-tests.tap'),node.stdout+node.stderr);
+const python=await runProcess(PYTHON,['-I','-B','-m','unittest','discover','-s','python','-p','test_*.py','-v'],{timeout:180000});
+await fs.writeFile(path.join(ROOT,'evidence/python-tests.txt'),python.stdout+python.stderr);
+const report={schema:'rea3d.source-publication-tests.v1',at:new Date().toISOString(),ok:node.code===0&&python.code===0,node:{exit:node.code,tests:Number(node.stdout.match(/# tests (\d+)/)?.[1]??0),passed:Number(node.stdout.match(/# pass (\d+)/)?.[1]??0),failed:Number(node.stdout.match(/# fail (\d+)/)?.[1]??0),skipped:Number(node.stdout.match(/# skipped (\d+)/)?.[1]??0)},python:{exit:python.code,transcript:'evidence/python-tests.txt'},scope:'Current source snapshot tests; fixtures are generated. Browser/performance results are a separate historical report.',originalGameParityVerified:false};
+await fs.writeFile(path.join(ROOT,'evidence/verification.json'),JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify(report,null,2));
+if(!report.ok)process.exitCode=1;

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REA 3D 자산 미리보기</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="importmap" nonce="__CSP_NONCE__">{"imports":{"three":"/vendor/three/build/three.module.js"}}</script>
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header><p class="eyebrow">REA 3D LAB · OFFLINE</p><h1>3D 자산 미리보기</h1><p id="filename">모델을 준비하고 있습니다.</p></header>
+  <main>
+    <section id="viewport" aria-label="3D 모델 화면"><p id="status" role="status">로컬 모델을 읽는 중입니다…</p></section>
+    <aside aria-label="모델과 애니메이션 조작">
+      <section><h2>보기</h2><p class="hint">드래그로 회전 · 휠로 확대 · 우클릭 드래그로 이동</p><label for="material-mode">재질 표현 비교</label><select id="material-mode" disabled><option value="source">원본 재질 설정</option><option value="fallback">GLB 기본 표현</option></select><label class="check"><input id="rotate" type="checkbox"> 자동 회전</label><label class="check"><input id="wireframe" type="checkbox"> 와이어프레임</label><button id="reset" type="button">카메라 맞추기</button></section>
+      <section><h2>애니메이션</h2><label for="clip">클립 선택</label><select id="clip" disabled><option value="">클립을 확인하는 중</option></select><div class="buttons"><button id="play" type="button" disabled>재생</button><button id="pause" type="button" disabled>일시 정지</button><button id="stop" type="button" disabled>정지</button></div><label for="timeline">재생 위치 <output id="time-value">0.00초</output></label><input id="timeline" type="range" min="0" max="1" step="0.0333333333" value="0" disabled><label for="speed">재생 속도 <output id="speed-value" for="speed">1.00×</output></label><input id="speed" type="range" min="0.25" max="2" step="0.25" value="1"><p id="playback" class="hint">애니메이션 정보 대기 중</p></section>
+      <section><h2>얼굴 값으로 보조 포즈 선택</h2><label for="auxiliary">턱·자세 포즈 묶음</label><select id="auxiliary" disabled><option value="">사용 안 함</option></select><label for="face-value">얼굴 값</label><select id="face-value" disabled><option value="0">0 · 원본 프레임 0</option><option value="1">1 · 원본 프레임 10</option><option value="2">2 · 원본 프레임 20</option><option value="3">3 · 원본 프레임 30</option><option value="4">4 · 원본 프레임 40</option><option value="5">5 · 원본 프레임 50</option><option value="6">6 · 원본 프레임 60</option><option value="7">7 · 원본 프레임 70</option></select><output id="face-frame" for="face-value">보조 포즈 사용 안 함</output><p id="face-control-status" class="hint" role="status"></p><p class="hint">선택한 원본 포즈를 고정합니다. 기본 동작과 재질·가시성의 재생 시간은 계속 흐릅니다.</p><p class="hint">원작 코드의 ‘얼굴 값 × 10 프레임’ 제어는 정적으로 확인했습니다. 이 선택기는 원본 포즈를 수동 확인하는 도구입니다. 원작은 조건에 따라 값 6·7을 0으로 바꿀 수 있으며, 실제 게임에서 포즈를 선택하는 이벤트의 실행 검증은 남아 있습니다.</p></section>
+      <section id="facial-controls" hidden><h2>눈·입 표정 원본 값</h2><div id="facial-values"></div><p id="facial-status" class="hint" role="status"></p><p class="hint">눈과 입의 원본 재질·가시성 포즈를 기본 동작 위에 고정합니다. 값의 의미와 자동 선택 시점은 원작 실행 기록과 따로 대조합니다. 이 화면은 자동 눈 깜빡임이나 원작의 값 6·7 보정 조건을 추정하지 않습니다.</p></section>
+      <section><h2>로드한 모델</h2><dl id="model-info"><dt>상태</dt><dd>확인 중</dd></dl></section>
+    </aside>
+  </main>
+  <footer>로컬 파일의 골격·재질·표정·가시성 트랙을 함께 재생합니다. 조명은 미리보기 설정이며 원작 게임 화면과의 동일성은 별도 검증 대상입니다.</footer>
+</body>
+</html>

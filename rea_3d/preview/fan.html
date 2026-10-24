@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#e9ebdf"><title>새잎 여행 · 팬게임 데모</title>
+  <link rel="stylesheet" href="/fan.css">
+  <script type="importmap" nonce="__CSP_NONCE__">{"imports":{"three":"/vendor/three/build/three.module.js"}}</script>
+  <script type="module" src="/fan.js"></script>
+</head>
+<body>
+  <main class="handheld" aria-label="새잎 여행 팬게임 데모">
+    <section class="world" aria-label="이상해씨 3D 필드">
+      <div class="field-texture" aria-hidden="true"></div>
+      <div class="world-label"><span class="seed-mark" aria-hidden="true">✦</span><div><span class="tiny-label">A LITTLE NEW ADVENTURE</span><h1>새잎 여행</h1></div></div>
+      <span class="demo-badge">FAN DEMO</span>
+      <div id="fan-viewport"><p id="fan-loading" role="status">이상해씨가 찾아오는 중…</p></div>
+      <div class="partner-badge"><span class="mini-orb" aria-hidden="true"></span><div><strong>이상해씨</strong><span>Lv.15 <i>·</i> 데모 파티</span></div><span class="partner-health" aria-label="HP 41 / 41">41<span>/41</span></span></div>
+      <div class="scene-tools"><button id="scene-play" type="button" aria-label="동작 일시 정지" title="동작 일시 정지" disabled>Ⅱ</button><button id="scene-reset" type="button" aria-label="시점 맞추기" title="시점 맞추기" disabled>↺</button></div>
+      <p class="scene-hint" id="scene-hint">드래그해서 둘러보세요</p>
+    </section>
+    <section class="lower-screen" aria-label="하단 게임 메뉴">
+      <header class="menu-heading"><div><span id="section-overline" class="tiny-label">YOUR NEXT LITTLE STEP</span><h2 id="section-title">어디로 갈까요?</h2></div><button id="menu-back" class="back-button" type="button" hidden>← <span>메뉴로</span></button><span id="home-count" class="home-count">01 <span>PARTNER</span></span></header>
+      <nav id="home-menu" class="menu-grid" aria-label="게임 메뉴"></nav>
+      <div id="menu-content" hidden></div>
+      <footer class="menu-footer"><span id="save-indicator"><span class="status-dot"></span> 이 기기에 저장할 수 있어요</span><span class="key-hint"><kbd>↵</kbd> 선택 <kbd>Esc</kbd> 뒤로</span></footer>
+    </section>
+    <div class="hardware-edge" aria-hidden="true"><span>GROW AT YOUR OWN PACE</span><i></i><i></i><i></i></div>
+  </main>
+  <p class="prototype-note">추출한 이상해씨 모델로 만든 팬게임 UI 시제품 · 전투·아이템 사용·여정 진행은 포함하지 않아요.</p>
+  <div id="fan-toast" role="status" aria-live="polite"></div>
+</body>
+</html>

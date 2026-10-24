@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="633" viewBox="0 0 1200 633" role="img" aria-label="Actual instrumented desktop playback p95 CPU and GPU costs. Separate scales.">
+<rect width="1200" height="633" fill="#f5f7f4"/><g font-family="Segoe UI,Arial,sans-serif" fill="#243d35"><text x="28" y="32" font-size="21" font-weight="700">Actual playback cost · pooled p95 · three measured runs</text><text x="28" y="56" font-size="12">AMD RX 9060 XT / ANGLE D3D11 · DPR 1 · 5s warmup + 10s sample/run · default headless RAF pacing</text><text x="330" y="88" font-size="13" font-weight="600">App callback / renderer CPU (ms)</text><text x="815" y="88" font-size="13" font-weight="600">GPU timer query (ms), separate scale</text>
+<line x1="330" x2="330" y1="110" y2="588" stroke="#dbe2db"/><text x="330" y="105" font-size="11">0.0</text>
+<line x1="815" x2="815" y1="110" y2="588" stroke="#dbe2db"/><text x="815" y="105" font-size="11">0.000</text>
+<line x1="430" x2="430" y1="110" y2="588" stroke="#dbe2db"/><text x="430" y="105" font-size="11">1.7</text>
+<line x1="885" x2="885" y1="110" y2="588" stroke="#dbe2db"/><text x="885" y="105" font-size="11">0.068</text>
+<line x1="530" x2="530" y1="110" y2="588" stroke="#dbe2db"/><text x="530" y="105" font-size="11">3.3</text>
+<line x1="955" x2="955" y1="110" y2="588" stroke="#dbe2db"/><text x="955" y="105" font-size="11">0.136</text>
+<line x1="630" x2="630" y1="110" y2="588" stroke="#dbe2db"/><text x="630" y="105" font-size="11">5.0</text>
+<line x1="1025" x2="1025" y1="110" y2="588" stroke="#dbe2db"/><text x="1025" y="105" font-size="11">0.203</text>
+<line x1="730" x2="730" y1="110" y2="588" stroke="#dbe2db"/><text x="730" y="105" font-size="11">6.6</text>
+<line x1="1095" x2="1095" y1="110" y2="588" stroke="#dbe2db"/><text x="1095" y="105" font-size="11">0.271</text>
+<text x="28" y="134" font-size="12">player-source-400x240</text><rect x="330" y="123" width="78.64488808128621" height="14" fill="#92b99c"/><rect x="330" y="130" width="54.44646100968964" height="7" fill="#315f4b"/><text x="415.64488808128624" y="134" font-size="11">1.30 / 0.90</text>
+<rect x="815" y="123" width="10.943952802359883" height="14" fill="#7e9fb8"/><text x="832.9439528023598" y="134" font-size="11">0.0106</text>
+<text x="28" y="170" font-size="12">player-fallback-400x240</text><rect x="330" y="159" width="90.74410164525517" height="14" fill="#92b99c"/><rect x="330" y="166" width="66.54567451731725" height="7" fill="#315f4b"/><text x="427.74410164525517" y="170" font-size="11">1.50 / 1.10</text>
+<rect x="815" y="159" width="34.27728613569322" height="14" fill="#7e9fb8"/><text x="856.2772861356932" y="170" font-size="11">0.0332</text>
+<text x="28" y="206" font-size="12">player-source-1280x720</text><rect x="330" y="195" width="84.69449489144137" height="14" fill="#92b99c"/><rect x="330" y="202" width="54.44646100968964" height="7" fill="#315f4b"/><text x="421.69449489144137" y="206" font-size="11">1.40 / 0.90</text>
+<rect x="815" y="195" width="37.70501474926254" height="14" fill="#7e9fb8"/><text x="859.7050147492625" y="206" font-size="11">0.0365</text>
+<text x="28" y="242" font-size="12">player-fallback-1280x720</text><rect x="330" y="231" width="127.04174233716205" height="14" fill="#92b99c"/><rect x="330" y="238" width="84.69449489144137" height="7" fill="#315f4b"/><text x="464.0417423371621" y="242" font-size="11">2.10 / 1.40</text>
+<rect x="815" y="231" width="56.94778761061946" height="14" fill="#7e9fb8"/><text x="878.9477876106195" y="242" font-size="11">0.0552</text>
+<text x="28" y="278" font-size="12">player-source-1920x1080</text><rect x="330" y="267" width="84.69449483510002" height="14" fill="#92b99c"/><rect x="330" y="274" width="54.44646100968964" height="7" fill="#315f4b"/><text x="421.69449483510004" y="278" font-size="11">1.40 / 0.90</text>
+<rect x="815" y="267" width="72.06489675516224" height="14" fill="#7e9fb8"/><text x="894.0648967551622" y="278" font-size="11">0.0698</text>
+<text x="28" y="314" font-size="12">player-fallback-1920x1080</text><rect x="330" y="303" width="102.84331520922413" height="14" fill="#92b99c"/><rect x="330" y="310" width="72.5952813274724" height="7" fill="#315f4b"/><text x="439.8433152092241" y="314" font-size="11">1.70 / 1.20</text>
+<rect x="815" y="303" width="87.09734513274337" height="14" fill="#7e9fb8"/><text x="909.0973451327434" y="314" font-size="11">0.0844</text>
+<text x="28" y="350" font-size="12">fan-source-400x240</text><rect x="330" y="339" width="48.39685419953449" height="14" fill="#92b99c"/><rect x="330" y="346" width="24.198427127937922" height="7" fill="#315f4b"/><text x="385.39685419953446" y="350" font-size="11">0.80 / 0.40</text>
+<rect x="815" y="339" width="14.743362831858406" height="14" fill="#7e9fb8"/><text x="836.7433628318583" y="350" font-size="11">0.0143</text>
+<text x="28" y="386" font-size="12">fan-source-1280x720</text><rect x="330" y="375" width="54.44646100968964" height="14" fill="#92b99c"/><rect x="330" y="382" width="30.248033881751724" height="7" fill="#315f4b"/><text x="391.44646100968964" y="386" font-size="11">0.90 / 0.50</text>
+<rect x="815" y="375" width="41.6283185840708" height="14" fill="#7e9fb8"/><text x="863.6283185840708" y="386" font-size="11">0.0403</text>
+<text x="28" y="422" font-size="12">fan-source-1920x1080</text><rect x="330" y="411" width="54.44646100968964" height="14" fill="#92b99c"/><rect x="330" y="418" width="30.248033881751724" height="7" fill="#315f4b"/><text x="391.44646100968964" y="422" font-size="11">0.90 / 0.50</text>
+<rect x="815" y="411" width="77.6401179941003" height="14" fill="#7e9fb8"/><text x="899.6401179941003" y="422" font-size="11">0.0752</text>
+<text x="28" y="458" font-size="12">scaling-6-source-1280x720</text><rect x="330" y="447" width="145.1905626549448" height="14" fill="#92b99c"/><rect x="330" y="454" width="78.64488808128621" height="7" fill="#315f4b"/><text x="482.1905626549448" y="458" font-size="11">2.40 / 1.30</text>
+<rect x="815" y="447" width="68.01769911504424" height="14" fill="#7e9fb8"/><text x="890.0176991150443" y="458" font-size="11">0.0659</text>
+<text x="28" y="494" font-size="12">scaling-6-fallback-1280x720</text><rect x="330" y="483" width="278.2819116895793" height="14" fill="#92b99c"/><rect x="330" y="490" width="175.4385964803552" height="7" fill="#315f4b"/><text x="615.2819116895794" y="494" font-size="11">4.60 / 2.90</text>
+<rect x="815" y="483" width="137.6873156342183" height="14" fill="#7e9fb8"/><text x="959.6873156342183" y="494" font-size="11">0.1334</text>
+<text x="28" y="530" font-size="12">scaling-12-source-1280x720</text><rect x="330" y="519" width="302.48033881751724" height="14" fill="#92b99c"/><rect x="330" y="526" width="163.33938297272758" height="7" fill="#315f4b"/><text x="639.4803388175172" y="530" font-size="11">5.00 / 2.70</text>
+<rect x="815" y="519" width="88.50147492625369" height="14" fill="#7e9fb8"/><text x="910.5014749262536" y="530" font-size="11">0.0857</text>
+<text x="28" y="566" font-size="12">scaling-12-fallback-1280x720</text><rect x="330" y="555" width="344.82758620689657" height="14" fill="#92b99c"/><rect x="330" y="562" width="223.83545067988968" height="7" fill="#315f4b"/><text x="681.8275862068965" y="566" font-size="11">5.70 / 3.70</text>
+<rect x="815" y="555" width="233.33333333333334" height="14" fill="#7e9fb8"/><text x="1055.3333333333333" y="566" font-size="11">0.2260</text>
+<text x="28" y="614" font-size="11">Nested CPU scopes must not be added. Current mode cost includes PICA hooks in fallback. Clones are one species. No shader-quality or phone-performance grade.</text></g></svg>

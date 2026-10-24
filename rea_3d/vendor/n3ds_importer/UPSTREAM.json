@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/sxrmss/n3ds_importer",
+  "commit": "a68959eae2f476526845a78af6990648cfe3434d",
+  "retrieved_at": "2026-10-23",
+  "license": "GPL-3.0-or-later",
+  "files": "ctr/ copied without modifications; LICENSE retained verbatim",
+  "credits": "Upstream credits gdkchan/SPICA (Unlicense) as its parser source.",
+  "limits": "No copyrighted game assets are included. BCH textures and animations are synthetic-test-only upstream. Export is newly implemented by rea3d_core."
+}

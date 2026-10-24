@@ -1,0 +1,24 @@
+{
+  "name": "rea-3d-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0-or-later",
+  "description": "Isolated REA companion for bounded Nintendo 3DS asset inspection and GLB export",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "mcp": "node src/mcp.mjs",
+    "capabilities": "node src/cli.mjs capabilities",
+    "verify": "node scripts/verify.mjs"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "gltf-validator": "2.0.0-dev.3.10"
+  }
+}
